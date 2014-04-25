@@ -1,1 +1,1 @@
-This repositore for some projects
+Vasiljeva Olga
