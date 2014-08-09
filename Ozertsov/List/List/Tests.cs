@@ -58,5 +58,91 @@ namespace List
             Lst l3 = new Lst(121);
             Assert.AreEqual(l3, l1 + l2);
         }
+        
+        [Test]
+        public static void AdditionPosNegSimpleTest()
+        {
+            Lst l1 = new Lst(21);
+            Lst l2 = new Lst(-11);
+            Lst l3 = new Lst(10);
+            Assert.AreEqual(l3, l1 + l2);
+            Assert.AreEqual(l3, l1 + l2);
+        }
+        [Test]
+        public static void AdditionNegPosSimpleTest()
+        {
+            Lst l1 = new Lst(21);
+            Lst l2 = new Lst(-11);
+            Lst l3 = new Lst(10);
+            Console.WriteLine(l2 + l1);
+            l2 += l1;
+            Assert.AreEqual(l3, l2);
+
+            Assert.AreEqual(l3, l2);
+        }
+        [Test]
+        public static void SubtractionSimpleTest()
+        {
+            Lst l1 = new Lst(-1);
+            Lst l2 = new Lst(-1);
+            Lst l3 = new Lst();
+            Assert.AreEqual(l3, l1 - l2);
+        }
+        [Test]
+        public static void AdditionRandomTest()
+        {
+            Random x = new Random();
+            Random y = new Random();
+            int op1 = x.Next(-1000, 1000);
+            int op2 = x.Next(-1000, 1000);
+            int result = op1 + op2;
+            Lst l1 = new Lst(op1);
+            Lst l2 = new Lst(op2);
+            Lst l3 = new Lst(result);
+            Console.WriteLine(op1 + " + " + op2 + " = " + result);
+            Console.WriteLine(l1 + " + " + l2 + " = " + (l1 + l2) + "but must be" + l3);
+            Assert.AreEqual(l3, l1 + l2);
+        }
+        [Test]
+        public static void SubtractionSignificantNullsTest()
+        {
+            Lst l1 = new Lst(100);
+            Lst l2 = new Lst(99);
+            Lst l3 = new Lst(1);
+            Assert.AreEqual(l3, l1 - l2);
+        }
+        [Test]
+        public static void MultiplicationTest()
+        {
+            Lst l1 = new Lst(13);
+            int p = 9;
+            Lst res = new Lst(117);
+            Assert.AreEqual(res, p * l1);
+            Assert.AreEqual(res, p * l1);
+        }
+        [Test]
+        public static void MultiplicationListTest()
+        {
+            Lst l1 = new Lst(11);
+            Lst l2 = new Lst(12);
+            Lst res = new Lst(132);
+            Assert.AreEqual(res, l1 * l2);
+            Assert.AreEqual(res, l1 * l2);
+        }
+        [Test]
+        public static void MultiplicationRandomTest()
+        {
+            Random x = new Random();
+            Random y = new Random();
+            int op1 = x.Next(-1000, 1000);
+            int op2 = x.Next(-1000, 1000);
+            int result = op1 * op2;
+            Lst l1 = new Lst(op1);
+            Lst l2 = new Lst(op2);
+            Lst l3 = new Lst(result);
+            Console.WriteLine(op1 + " + " + op2 + " = " + result);
+            Console.WriteLine(l1 + " + " + l2 + " = " + (l1 * l2) + "but must be" + l3);
+            Assert.AreEqual(l3, l1 * l2);
+        }
     }
 }
