@@ -30,7 +30,7 @@ namespace HelloWorld
             CompilationUnitSyntax root = tree.GetRoot();
             MyLiteralRewriter mlr = new MyLiteralRewriter();
             //TODO more elegant search;
-            VariableDeclaratorSyntax childrens = (VariableDeclaratorSyntax) root.Members[0].ChildNodes().ElementAt(1).ChildNodes().ElementAt(0).ChildNodes().ElementAt(2).ChildNodes().ElementAt(0).ChildNodes().ElementAt(0).ChildNodes().ElementAt(1);
+            VariableDeclaratorSyntax childrens = GetDeclaratorSyntax(root);
             var a = mlr.VisitVariableDeclarator(childrens);
             root = root.ReplaceNode(childrens, mlr.VisitVariableDeclarator(childrens));
             tree = SyntaxTree.Create(root);
@@ -39,6 +39,37 @@ namespace HelloWorld
             //TODO update file
             Console.WriteLine("After using Roslyn");
             Console.WriteLine(text);
+        }
+
+        public static VariableDeclaratorSyntax GetDeclaratorSyntax(CompilationUnitSyntax root) {
+            foreach (var v in root.Members) {
+                if (v is NamespaceDeclarationSyntax) {
+                    foreach (var w in v.ChildNodes()) {
+                        if (w is ClassDeclarationSyntax) {
+                            foreach (var e in w.ChildNodes()) {
+                                if (e is MethodDeclarationSyntax) {
+                                    foreach (var r in e.ChildNodes()) {
+                                        if (r is BlockSyntax) {
+                                            foreach (var t in r.ChildNodes()) {
+                                                if (t is LocalDeclarationStatementSyntax) {
+                                                    foreach (var y in t.ChildNodes()) {
+                                                        if (y is VariableDeclarationSyntax)
+                                                            foreach (var u in y.ChildNodes()) {
+                                                                if (u is VariableDeclaratorSyntax)
+                                                                    return ( u as VariableDeclaratorSyntax );
+                                                            }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            throw new Exception();
         }
     }
 }
