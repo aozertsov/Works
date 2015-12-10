@@ -31,8 +31,8 @@ namespace HelloWorld
             MyLiteralRewriter mlr = new MyLiteralRewriter();
             //TODO more elegant search;
             VariableDeclaratorSyntax childrens = GetDeclaratorSyntax(root);
-            var a = mlr.VisitVariableDeclarator(childrens);
-            root = root.ReplaceNode(childrens, mlr.VisitVariableDeclarator(childrens));
+            //var a = mlr.VisitVariableDeclarator(childrens, 23);
+            root = root.ReplaceNode(childrens, mlr.VisitVariableDeclarator(childrens, 32));
             tree = SyntaxTree.Create(root);
             root = tree.GetRoot();
             text = root.GetText().ToString();
