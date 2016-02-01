@@ -155,10 +155,5 @@ $RECYCLE.BIN/
 # Mac desktop service store files
 .DS_Store
 
-
-*.dll
-*.xml
-*.txt
-*.nupkg
-*.nuspec
-
+#Packages
+**/packages/
