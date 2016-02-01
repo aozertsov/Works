@@ -1,0 +1,15 @@
+﻿<Properties StartupItem="ArraySort/ArraySort.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ArraySort/Program.cs">
+    <Files>
+      <File FileName="ArraySort/Program.cs" Line="30" Column="5" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/media/alexander/Новый том/Repositore/Works/Ozertsov/ArraySort/ArraySort/Program.cs" line="77" column="1" />
+      <Breakpoint file="/media/alexander/Новый том/Repositore/Works/Ozertsov/ArraySort/ArraySort/Program.cs" line="62" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
